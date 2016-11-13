@@ -140,7 +140,10 @@ public class Plane
      * (Precondition: seats is initialized)
      */
     public void printLayout()
-    {
+    {  
+        int filledSeats = (int)(Stream.of(seats).flatMap(Stream::of).filter(s -> s.isReserved()).count());
+        System.out.format("Occupancy: %d / %d\n", filledSeats, seats.length * seats[0].length);
+        System.out.println();
         System.out.print("  ");
         for(int i = 1; i <= 9; i++)
         {

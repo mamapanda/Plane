@@ -117,56 +117,44 @@ public class AutoSeater
         {
             for(int c = 0; c < 8; c++)
             {
-                if(!seats[r][c].isReserved() && tryGroupSeat(group, r, c, endRow))
+                if(!seats[r][c].isReserved() && (tryGroupSeat(group, r, c, endRow, -1) || tryGroupSeat(group, r, c, endRow, 1)))
                 {
-                    System.out.println("Seats reserved.");
                     return;
                 }
             }
         }
         System.out.println("Not possible to reserve seats.");
     }
-    private boolean tryGroupSeat(Passenger[] group, int currentRow, int currentColumn, int endRow)
+    private boolean tryGroupSeat(Passenger[] group, int currentRow, int currentColumn, int endRow, int direction)
     {
-        int passengerCount = group.length;
-        int finishColumn = 0; //last vacant column in the row
-        ArrayList<Seat> possible = new ArrayList<Seat>();
-        for(int c = currentColumn; c < 8; c++) //initial check
+        int columnIncrement = (int)Math.signum(direction); //just in case
+        ArrayList<Seat> possibleSeats = new ArrayList<Seat>();
+        int r = currentRow;
+        int c = currentColumn;
+        while(possibleSeats.size() < group.length)
         {
-            if(!seats[currentRow][c].isReserved())
+            if(c < 0 || c > 7 || seats[r][c].isReserved())
             {
-                passengerCount--;
-                possible.add(seats[currentRow][c]);
+                c -= columnIncrement; //because we're 1 away from empty seat
+                r++;
+                columnIncrement *= -1;
+                if(r > endRow || seats[r][c].isReserved()) return false;
             }
-            else{
-                finishColumn = c - 1;
-                break;
+            else
+            {
+                possibleSeats.add(seats[r][c]);
+                c += columnIncrement;
             }
         }
-        loop: while(true) 
+        if(possibleSeats.size() >= group.length)
         {
-            currentRow++;
-            if(passengerCount <= 0){ //aka there are enough seats
-                for(int i = 0; i < group.length; i++){
-                    possible.get(i).reserve(group[i]);
-                }
-                return true;
-            }else if(currentRow > endRow){ //aka there are not enough seats
-                break;
-            }
-            ArrayList<Seat> temp = new ArrayList<Seat>();
-            int emptyCounter = 0;
-            if(passengerCount > finishColumn - currentColumn)
+            for(int i = 0; i < group.length; i++)
             {
-                for(int c = currentColumn; c <= finishColumn; c++)
-                {
-                    if(!seats[currentRow][c].isReserved())
-                    {
-                        emptyCounter++;
-                    }
-                }
+                possibleSeats.get(i).reserve(group[i]);
+                System.out.format("Seat %s reserved\n", possibleSeats.get(i).getLocation());   
             }
+            return true;
         }
-        return false;
+        return false; //aka the code fucked up bc theoretically it should never get here
     }
 }
