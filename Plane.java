@@ -21,7 +21,7 @@ public class Plane
     /**
      * Constructs a new plane
      * (Postcondition: autoseater, seats, and seat's elements are initialized)
-     * (Precondition: seats and autoseater are declared, and COLUMN_LETTERS is defined)
+     * (Precondition: seats and autoseater are declared, and COLUMN_LETTERS, ROWS, and COLUMNS are defined)
      */
     public Plane()
     {
@@ -75,6 +75,12 @@ public class Plane
      */
     public void fillSeatsRandomly(int seatCount)
     {
+        int seatsLeft = (int)(Stream.of(seats).flatMap(Stream::of).filter(s -> !s.isReserved()).count());
+        if(seatCount > seatsLeft)
+        {
+            System.out.println("There are not enough seats.");
+            return;
+        }
         for(int i = 0; i < seatCount; i++)
         {
             autoseater.seatOne(new Passenger("John", "Doe" + i));
