@@ -2,7 +2,7 @@
  * The main class to run the application
  * 
  * @author Daniel Phan / Derek Tang
- * @version 11.11.16
+ * @version 11.13.16
  */
 
 import java.util.Scanner;

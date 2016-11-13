@@ -2,7 +2,7 @@
  * Contains information about a passenger
  * 
  * @author Daniel Phan / Derek Tang
- * @version 11.11.16
+ * @version 11.13.16
  */
 public class Passenger
 {

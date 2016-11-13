@@ -2,7 +2,7 @@
  * Utility to help Plane randomly seat airplane passengers
  * 
  * @author Daniel Phan
- * @version 11.11.16
+ * @version 11.13.16
  */
 
 import java.util.ArrayList;
