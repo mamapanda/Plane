@@ -7,6 +7,7 @@
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Optional;
 import java.util.stream.*;
 
 public class Plane
@@ -113,25 +114,18 @@ public class Plane
      */
     public void reserveSeatManual(Passenger passenger, String seat)
     {
-        for(int r = 0; r < ROWS; r++)
+        Optional<Seat> reserveSeat = Stream.of(seats).flatMap(Stream::of).filter(s -> s.getLocation().equals(seat)).findFirst();
+        if(reserveSeat.isPresent())
         {
-            for(int c = 0; c < COLUMNS; c++)
-            {
-                if(seats[r][c].getLocation().equals(seat))
-                {
-                    if(!seats[r][c].isReserved())
-                    {
-                        seats[r][c].reserve(passenger);
-                        System.out.format("Seat %s reserved.\n", seat);
-                    }
-                    else
-                    {
-                        System.out.format("Seat %s is already taken.\n", seat);
-                    }
-                    return;
-                }
+            if(reserveSeat.get().isReserved())
+                System.out.format("Seat %s is already taken.\n", seat);
+            else{
+                reserveSeat.get().reserve(passenger);
+                System.out.format("Seat %s reserved.\n", seat);
             }
         }
+        else
+            System.out.format("Seat %s does not exist", seat);
     }
 
     /**
