@@ -9,8 +9,8 @@ import java.util.Scanner;
 
 public class Program
 {
-    private static Scanner in;
-    private static Plane plane;
+    private static Scanner in; //the scanner class to read user input
+    private static Plane plane; //the plane
 
     public static void main(String[] args) 
     {
@@ -65,6 +65,11 @@ public class Program
         }
     }
 
+    /**
+     * Seats one user Automatically
+     * (Postcondition: the user is seated, if there is at least 1 vacant seat)
+     * (Precondition: plane and in are initialized)
+     */
     private static void seatOneAutomatically()
     {
         System.out.print("Enter your name: ");
@@ -72,6 +77,12 @@ public class Program
         in.nextLine();
         plane.reserveSeatAuto(p, getPreference());
     }
+
+    /**
+     * Reserves a passenger's desired seat if it is not taken
+     * (Postcondition: the desired seat is reserved, if possible)
+     * (Precondition: plane and in are initialized)
+     */
     private static void seatOneManually()
     {
         System.out.print("Enter your name: ");
@@ -82,6 +93,12 @@ public class Program
         plane.reserveSeatManual(r, in.next());
         in.nextLine();
     }
+
+    /**
+     * Automatically seats a group based on their preferences
+     * (Postcondition: the group is seated, if possible)
+     * (Precondition: plane and in are initialized)
+     */
     private static void seatGroup()
     {
         System.out.format("How many people are in the group?: ");
@@ -102,6 +119,12 @@ public class Program
         }
         plane.reserveSeatAutoGroup(group, cls);
     }
+
+    /**
+     * Cancels a reservation either by the passenger name or the seat ID
+     * (Postcondition: the seat is unreserved, if possible)
+     * (Precondition: plane and in are initialized)
+     */
     private static void cancelReservation()
     {
         System.out.println();
@@ -122,6 +145,13 @@ public class Program
         }
         System.out.println("Reservation cancelled.");
     }
+
+    /**
+     * Obtains the passenger's seating and class preference
+     * (Postcondition: the passenger's preferences are returned)
+     * @return an array of length 2, with index 0 being the class, and index 1 being the seating preference
+     * (Precondition: in is initialized)
+     */
     private static String[] getPreference()
     {
         String[] pref = new String[2];

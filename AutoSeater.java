@@ -91,6 +91,12 @@ public class AutoSeater
         System.out.println("All possible seats are already taken.");
     }
 
+    /**
+     * Automatically reserves a seat for group, if possible
+     * (Postcondition: the seats are reserved, if possible)
+     * @param group the array of passengers to be seated
+     * (Precondition: group.length > 0 && cls == "1" || cls == "e" || cls == "any")
+     */
     public void seatGroup(Passenger[] group, String cls)
     {
         if(group.length == 0) return;
@@ -117,7 +123,7 @@ public class AutoSeater
         {
             for(int c = 0; c < 8; c++)
             {
-                if(!seats[r][c].isReserved() && (tryGroupSeat(group, r, c, endRow, -1) || tryGroupSeat(group, r, c, endRow, 1)))
+                if(!seats[r][c].isReserved() && (tryGroupSeat(group, r, c, endRow, 1) || tryGroupSeat(group, r, c, endRow, -1)))
                 {
                     return;
                 }
@@ -125,6 +131,18 @@ public class AutoSeater
         }
         System.out.println("Not possible to reserve seats.");
     }
+
+    /**
+     * Seats a group starting at a given seat location and snake direction, if possible
+     * (Postcondition: the group is seated, if possible)
+     * @param group the group of passengers to be seated
+     * @param currentRow the row of the starting seat  
+     * @param currentColumn the column of the starting seat
+     * @param endRow the last possible row to check
+     * @param direction the direction to start the initial snake
+     * @return true if the seating was successful, false otherwise
+     * (Precondition: group.length > 0 && currentRow, currentColumn, and endRow are between 0 and 11, inclusive && direction != 0)
+     */
     private boolean tryGroupSeat(Passenger[] group, int currentRow, int currentColumn, int endRow, int direction)
     {
         int columnIncrement = (int)Math.signum(direction); //just in case
