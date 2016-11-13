@@ -1,0 +1,29 @@
+#BlueJ class context
+comment0.params=location\ isFirstClass
+comment0.target=Seat(java.lang.String,\ boolean)
+comment0.text=\r\n\ Constructs\ a\ new\ seat\ with\ the\ given\ location\ and\ class\ (first/economy)\r\n\ (Postcondition\:\ isFirstClass\ and\ location\ are\ initialized)\r\n\ @param\ location\ the\ seat's\ location\r\n\ @param\ isFirstClass\ whether\ or\ not\ the\ seat\ is\ first\ class\r\n\ (Precondition\:\ location\ follows\ the\ form\ (number\ +\ letter)\r\n
+comment1.params=
+comment1.target=java.lang.String\ getLocation()
+comment1.text=\r\n\ Returns\ the\ seat's\ location\r\n\ (Postcondition\:\ the\ seat's\ location\ is\ returned)\r\n\ @return\ the\ seat's\ location\r\n\ (Precondition\:\ location\ follows\ the\ form\ (number\ +\ letter))\r\n
+comment2.params=
+comment2.target=Passenger\ getPassenger()
+comment2.text=\r\n\ Returns\ the\ passenger\ of\ this\ seat\r\n\ (Postcondition\:\ passenger\ is\ returned)\r\n\ @return\ the\ passenger\ of\ the\ seat\r\n\ (Precondition\:\ passenger\ is\ defined)\r\n
+comment3.params=
+comment3.target=boolean\ isFirstClass()
+comment3.text=\r\n\ Returns\ whether\ or\ not\ the\ seat\ is\ first\ class\r\n\ (Postcondition\:\ isFirstClass\ is\ returned)\r\n\ @return\ whether\ or\ not\ the\ seat\ is\ first\ class\r\n\ (Precondition\:\ isFirstClass\ is\ defined)\r\n
+comment4.params=
+comment4.target=boolean\ isReserved()
+comment4.text=\r\n\ Returns\ whether\ or\ not\ the\ seat\ is\ reserved\r\n\ (Postcondition\:\ the\ seat's\ vacancy\ status\ is\ returned)\r\n\ @return\ the\ seat's\ vacancy\ status\r\n\ (Precondition\:\ passenger\ is\ defined)\r\n
+comment5.params=passenger
+comment5.target=void\ reserve(Passenger)
+comment5.text=\r\n\ Reserves\ the\ seat\ for\ the\ passenger\ if\ it\ is\ vacant\r\n\ (Postcondition\:\ the\ seat\ is\ reserved,\ if\ it\ is\ vacant)\r\n\ @param\ passenger\ the\ passenger\ for\ whom\ to\ reserve\ the\ seat\r\n\ (Precondition\:\ passenger\ \!\=\ null)\r\n
+comment6.params=
+comment6.target=void\ unreserve()
+comment6.text=\r\n\ Unreserves\ the\ seat\r\n\ (Postcondition\:\ passenger\ \=\=\ null)\r\n\ (Precondition\:\ passenger\ is\ declared)\r\n
+comment7.params=
+comment7.target=void\ printInfo()
+comment7.text=\r\n\ Prints\ the\ seat\ info\ and\ passenger\r\n\ (Postcondition\:\ the\ seat\ info\ and\ passenger\ are\ printed\ to\ the\ screen)\r\n\ (Precondition\:\ the\ seat\ location\ is\ initialized)\r\n
+comment8.params=
+comment8.target=void\ printPassengerInfo()
+comment8.text=\r\n\ Prints\ the\ seat\ passenger\ and\ seat\ location\r\n\ (Postcondition\:\ the\ passenger\ and\ seat\ are\ printed\ to\ the\ screen)\r\n\ (Precondition\:\ passenger\ \!\=\ null\ &&\ get\ location\ is\ initialized)\r\n
+numComments=9

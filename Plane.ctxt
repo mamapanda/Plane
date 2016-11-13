@@ -1,0 +1,32 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Plane()
+comment0.text=\r\n\ Constructs\ a\ new\ plane\r\n\ (Postcondition\:\ autoseater,\ seats,\ and\ seat's\ elements\ are\ initialized)\r\n\ (Precondition\:\ seats\ and\ autoseater\ are\ declared,\ and\ COLUMN_LETTERS\ is\ defined)\r\n
+comment1.params=fName\ lName
+comment1.target=void\ cancelReservationByName(java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Cancels\ a\ seat's\ reservation\ given\ a\ passenger's\ name\r\n\ (Postcondition\:\ the\ given\ passenger's\ seat\ is\ unreserved)\r\n\ @param\ fName\ the\ passenger's\ first\ name\r\n\ @param\ lName\ the\ passenger's\ last\ name\r\n\ (Precondition\:\ fName\ is\ a\ first\ name,\ and\ lName\ is\ a\ last\ name)\r\n
+comment2.params=seat
+comment2.target=void\ cancelReservationBySeat(java.lang.String)
+comment2.text=\r\n\ Cancels\ a\ seat\ reservation\ given\ the\ seat\ location\r\n\ (Postcondition\:\ the\ seat\ with\ the\ given\ location\ is\ unreserved)\r\n\ @param\ seat\ the\ seat's\ location\r\n\ (Precondition\:\ seat\ follows\ the\ form\ (number\ +\ letter))\r\n
+comment3.params=seatCount
+comment3.target=void\ fillSeatsRandomly(int)
+comment3.text=\r\n\ Fills\ a\ given\ number\ of\ seats\ with\ people\r\n\ (Postcondition\:\ the\ given\ number\ of\ seats\ filled)\r\n\ @param\ seatCount\ the\ number\ of\ seats\ to\ fill\r\n\ (Precondition\:\ seatCount\ >\=\ 0)\r\n
+comment4.params=passenger\ pref
+comment4.target=void\ reserveSeatAuto(Passenger,\ java.lang.String[])
+comment4.text=\r\n\ Reserves\ a\ seat\ automatically\ based\ on\ the\ passenger's\ preferences\r\n\ (Postcondition\:\ a\ seat\ is\ reserved\ for\ the\ passenger,\ if\ possible)\r\n\ @param\ passenger\ the\ passenger\ to\ reserve\ a\ seat\ for\r\n\ @param\ pref\ the\ passenger's\ preferences\r\n\ (Precondition\:\ passenger\ \!\=\ null,\ pref\ contains\ valid\ preference\ values)\r\n
+comment5.params=group\ cls
+comment5.target=void\ reserveSeatAutoGroup(Passenger[],\ java.lang.String)
+comment5.text=\r\n\ Reserves\ a\ group\ of\ seats\ automatically\ based\ on\ the\ given\ preferences\r\n\ (Postcondition\:\ a\ group\ of\ seats\ are\ reserved,\ if\ possible)\r\n\ @param\ group\ the\ group\ of\ passengers\ to\ reserve\ seats\ for\r\n\ @param\ pref\ the\ group's\ preferences\r\n\ (Precondition\:\ group\ \!\=\ null,\ pref\ contains\ valid\ preference\ values)\r\n
+comment6.params=passenger\ seat
+comment6.target=void\ reserveSeatManual(Passenger,\ java.lang.String)
+comment6.text=\r\n\ Reserves\ a\ seat\ for\ a\ passenger\ based\ on\ the\ given\ seat,\ if\ the\ seat\ is\ not\ reserved\r\n\ (Postcondition\:\ the\ seat\ is\ reserved,\ if\ possible)\r\n\ @param\ passenger\ the\ passenger\ for\ whom\ to\ reserve\ a\ seat\r\n\ @param\ seat\ the\ desired\ seat\r\n\ (Precondition\:\ passenger\ \!\=\ null\ &&\ seat\ follows\ the\ form\ number\ +\ letter)\r\n
+comment7.params=
+comment7.target=void\ printLayout()
+comment7.text=\r\n\ Prints\ the\ plane's\ seating\ layout\r\n\ (Postcondition\:\ the\ plane's\ seating\ layout\ is\ printed)\r\n\ (Precondition\:\ seats\ is\ initialized)\r\n
+comment8.params=
+comment8.target=void\ printPassengers()
+comment8.text=\r\n\ Prints\ the\ plane's\ passengers\ and\ their\ seats,\ in\ order\ of\ the\ passenger's\ name\r\n\ (Postcondition\:\ the\ passengers\ and\ their\ seats\ are\ printed)\r\n\ (Precondition\:\ seats\ is\ initialized)\r\n
+comment9.params=
+comment9.target=void\ printSeats()
+comment9.text=\r\n\ Prints\ the\ seats\ and\ their\ passengers'\ names\r\n\ (Postcondition\:\ the\ seats\ and\ their\ passengers\ are\ printed)\r\n\ (Precondition\:\ seats,\ ROWS,\ and\ COLUMNS\ are\ initialized)\r\n
+numComments=10

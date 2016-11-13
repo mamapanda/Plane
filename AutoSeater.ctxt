@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=seats
+comment0.target=AutoSeater(Seat[][])
+comment0.text=\r\n\ Constructs\ a\ new\ instance\ of\ AutoSeater\ with\ the\ given\ seat\ array\r\n\ (Postcondition\:\ random\ and\ seats\ are\ initialized)\r\n\ @param\ seats\ the\ seats\ of\ the\ airplane\r\n\ (Precondition\:\ random\ and\ seats\ are\ declared)\r\n
+comment1.params=passenger
+comment1.target=void\ seatOne(Passenger)
+comment1.text=\r\n\ Seats\ one\ passenger\ in\ any\ random\ vacant\ seat\r\n\ (Postcondition\:\ passenger\ is\ seated,\ is\ possible)\r\n\ @param\ passenger\ the\ passenger\ to\ seat\r\n\ (Precondition\:\ passenger\ \!\=\ null)\r\n
+comment2.params=passenger\ pref
+comment2.target=void\ seatOnePref(Passenger,\ java.lang.String[])
+comment2.text=\r\n\ Seats\ a\ person\ based\ on\ their\ preferences\r\n\ (Postcondition\:\ the\ passenger\ is\ seated,\ if\ possible)\r\n\ @param\ passenger\ the\ passenger\ to\ seat\r\n\ @param\ pref\ the\ passenger's\ seating\ preferences\r\n\ (Precondition\:\ passenger\ \!\=\ null\ &&\ pref\ \!\=\ null)\r\n
+comment3.params=group\ cls
+comment3.target=void\ seatGroup(Passenger[],\ java.lang.String)
+comment4.params=group\ currentRow\ currentColumn\ endRow
+comment4.target=boolean\ tryGroupSeat(Passenger[],\ int,\ int,\ int)
+comment5.params=group\ cls
+comment5.target=void\ checkThroughColumn(Passenger[],\ java.lang.String)
+numComments=6
