@@ -12,7 +12,7 @@ public class Program
     private static Scanner in;
     private static Plane plane;
 
-    public static void main(String[] args) //probs break it up
+    public static void main(String[] args) 
     {
         plane = new Plane();
         in = new Scanner(System.in);
@@ -28,7 +28,8 @@ public class Program
             System.out.println("8 - Print Plane Layout");
             System.out.println("0 - Exit");
             System.out.print("> ");
-            int choice = in.nextInt(); in.nextLine();
+            int choice = in.nextInt(); 
+            in.nextLine();
             switch(choice)
             {
                 case 1:
@@ -45,7 +46,8 @@ public class Program
                     break;
                 case 5:
                     System.out.print("Number of seats to fill: ");
-                    plane.fillSeatsRandomly(in.nextInt()); in.nextLine();
+                    plane.fillSeatsRandomly(in.nextInt()); 
+                    in.nextLine();
                     break;
                 case 6: 
                     plane.printPassengers();
@@ -106,10 +108,12 @@ public class Program
         System.out.println("1 - Cancel by Name");
         System.out.println("2 - Cancel by Seat");
         System.out.print("> ");
-        int cancelChoice = in.nextInt(); in.nextLine();
+        int cancelChoice = in.nextInt(); 
+        in.nextLine();
         if(cancelChoice == 1){
             System.out.print("Enter your name: ");
-            plane.cancelReservationByName(in.next(), in.next()); in.nextLine();
+            plane.cancelReservationByName(in.next(), in.next()); 
+            in.nextLine();
         }
         else if(cancelChoice == 2){
             System.out.print("Enter the seat: ");

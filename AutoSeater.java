@@ -131,7 +131,6 @@ public class AutoSeater
         int passengerCount = group.length;
         int finishColumn = 0; //last vacant column in the row
         ArrayList<Seat> possible = new ArrayList<Seat>();
-        //ArrayList<Seat[]> possible = new ArrayList<Seat[]>();
         for(int c = currentColumn; c < 8; c++) //initial check
         {
             if(!seats[currentRow][c].isReserved())

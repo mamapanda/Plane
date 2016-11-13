@@ -5,10 +5,8 @@
  * @version 11.11.16
  */
 
-import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 public class Plane
 {
@@ -51,8 +49,7 @@ public class Plane
         {
             for(int c = 0; c < COLUMNS; c++)
             {
-                if(!seats[r][c].isReserved()) continue;
-                if(seats[r][c].getPassenger().getName().equals(name))
+                if(seats[r][c].isReserved() && seats[r][c].getPassenger().getName().equals(name))
                 {
                     seats[r][c].unreserve();
                     return;
