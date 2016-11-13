@@ -7,6 +7,7 @@
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.stream.*;
 
 public class Plane
 {
@@ -44,18 +45,12 @@ public class Plane
     public void cancelReservationByName(String fName, String lName)
     {
         String name = String.format("%s, %s", lName, fName);
-        System.out.println(name);
-        for(int r = 0; r < ROWS; r++)
-        {
-            for(int c = 0; c < COLUMNS; c++)
-            {
-                if(seats[r][c].isReserved() && seats[r][c].getPassenger().getName().equals(name))
-                {
-                    seats[r][c].unreserve();
-                    return;
-                }
-            }
-        }
+        try{
+            Stream.of(seats)
+                .flatMap(Stream::of)
+                .filter(s -> s.isReserved() && s.getPassenger().getName().equals(name))
+                .findFirst().get().unreserve();
+        } catch(Exception e){ }
     }
 
     /**
@@ -66,17 +61,9 @@ public class Plane
      */
     public void cancelReservationBySeat(String seat)
     {
-        for(int r = 0; r < ROWS; r++)
-        {
-            for(int c = 0; c < COLUMNS; c++)
-            {
-                if(seats[r][c].getLocation().equals(seat))
-                {
-                    seats[r][c].unreserve();
-                    return;
-                }
-            }
-        }
+        try{
+            Stream.of(seats).flatMap(Stream::of).filter(s -> s.getLocation().equals(seat)).findFirst().get().unreserve();
+        } catch(Exception e) { }
     }
 
     /**
@@ -185,34 +172,20 @@ public class Plane
      */
     public void printPassengers()
     {
-        ArrayList<Seat> reservedSeats = new ArrayList<Seat>();
-        for(Seat[] sa: seats)
-        {
-            for(Seat s: sa)
-            {
-                if(s.isReserved()) reservedSeats.add(s);
-            }
-        }
-        reservedSeats.sort((s1, s2) -> s1.getPassenger().getName().compareTo(s2.getPassenger().getName()));
-        for(Seat s: reservedSeats)
-        {
-            s.printPassengerInfo();
-        }
+        Stream.of(seats)
+            .flatMap(Stream::of)
+            .filter(s -> s.isReserved())
+            .sorted((s1, s2) -> s1.getPassenger().getName().compareTo(s2.getPassenger().getName()))
+            .forEach(s -> s.printPassengerInfo());
     }
 
     /**
      * Prints the seats and their passengers' names
      * (Postcondition: the seats and their passengers are printed)
-     * (Precondition: seats, ROWS, and COLUMNS are initialized)
+     * (Precondition: seats is initialized)
      */
     public void printSeats()
     {
-        for(int r = 0; r < ROWS; r++)
-        {
-            for(int c = 0; c < COLUMNS; c++)
-            {
-                seats[r][c].printInfo();
-            }
-        }
+        Stream.of(seats).flatMap(Stream::of).forEach(s -> s.printInfo());
     }
 }

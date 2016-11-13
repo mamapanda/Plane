@@ -53,7 +53,7 @@ public class Program
                     plane.printPassengers();
                     break;
                 case 7:
-                    plane.printPassengers();
+                    plane.printSeats();
                     break;
                 case 8:
                     plane.printLayout();
